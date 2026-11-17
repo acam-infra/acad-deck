@@ -27,7 +27,7 @@ contrast   = (L_lighter + 0.05) / (L_darker + 0.05)
 - Body scale: `BODY-HEAD` = **15pt bold `INK`**, `BODY-TEXT` = **13.5pt regular `INK`** (never grey tails).
 - Headings: **19pt bold `DEEP`**, one line (`[gate]`). Fix wraps by cutting words, not shrinking the font.
 - Place vertical air with `#v(1fr)`, not magic pixel gaps.
-- **MiTeX font leak:** text after `#mi(...)` inherits the math serif — wrap following text in `#text(font: SANS)[...]`.
+- **Math (`MiTeX`):** use `#import "@preview/mitex:0.2.7": mi, mitex` with native LaTeX inside raw backticks `` `...` `` (`#mi(...)` inline, `#mitex(...)` block) so equations stay verbatim with the paper's `.tex`. Wrap any immediately following prose in `#text(font: SANS)[...]` to prevent math serif leakage.
 
 ## 3. Figures
 

@@ -33,7 +33,10 @@ Page numbering: `qa/s-NN.png` and gate messages use **1-indexed PDF page numbers
    - `strap([...])` (optional bottom argument bar)
    - `focus-steps(( (head: [...], tail: [...]), ... ))` (progressive highlight that collapses cleanly in `--input handout=1`)
 3. Put every measurement in `slides/data.typ` and reference `#D.<field>` or `#fmt2(...)` — never hard-code numbers inside slides.
-4. **MiTeX font leak:** text immediately following `#mi(...)` inherits the math serif font; wrap it in `#text(font: SANS)[...]`.
+4. **Math (`MiTeX`)**: import `#import "@preview/mitex:0.2.7": mi, mitex` and pass native LaTeX inside raw backticks `` `...` `` so formulas stay identical to the paper's `.tex` (no Typst math rewriting):
+   - Inline math: `` #mi(`T_{\mathrm{stall}}`) `` (or bind shorthands like `` #let T-stall = mi(`T_{\mathrm{stall}}`) `` at the top of `slides/main.typ`).
+   - Display / block math: `` #mitex(`T = T_{\mathrm{stall}} + T_{\mathrm{exec}}`) ``.
+   - **Font leak guard:** text immediately following `#mi(...)` inherits the math serif font; wrap following prose in `#text(font: SANS)[...]`.
 5. Update the matching `## Slide NN · <title>` section in `slides/SCRIPT.md` in the same commit.
 6. Run `make` and visually inspect `qa/s-NN.png` for every touched page.
 
