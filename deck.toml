@@ -1,0 +1,94 @@
+[deck]
+name = "Example-Talk"
+title = "Example Academic Talk"
+subtitle = "A Reproducible Typst + Touying Presentation Template"
+author = "Author One, Author Two"
+presenter = "Author One"
+institution = "Example University"
+venue = "Example Conference '26"
+date = "November 2026"
+footer_left = "Example University"
+footer_center = "Example Talk · Example Conference '26"
+
+[build]
+main_src = "slides/main.typ"
+backup_src = "slides/backup.typ"
+out_dir = "render"
+qa_dir = "qa"
+pages_main = 4
+pages_handout = 4
+pages_backup = 2
+
+[theme]
+deep = "#0F2744"
+deep_lt = "#E8F0F8"
+accent = "#0E7490"
+accent_lt = "#E0F5FB"
+teal = "#14B8A6"
+teal_deep = "#0F766E"
+bad = "#B91C1C"
+ink = "#1F2937"
+muted = "#5B6673"
+foot = "#667382"
+gdark = "#24364F"
+gmid = "#5B6673"
+glt = "#94A3B8"
+gfaint = "#D5DEE6"
+gfill = "#F3F7FA"
+sans_font = "Liberation Sans"
+mono_font = "Liberation Mono"
+cjk_font = "Noto Sans CJK SC"
+# Relative to slides/ (leave empty if unused)
+logo_institution = ""
+logo_venue = ""
+
+[gates]
+ppi_floor = 150.0
+ink_floor = 0.88
+gap_ceil = 0.28
+cover_floor = 0.33
+heading_band = 0.135
+heading_min_size = 15.0
+# Set to true when omitting bottom #strap() across slides
+soft_bottom_dead_zone = true
+# 1-indexed PDF pages exempted from ink/fill checks (e.g. deliberate takeaway page)
+exempt_pages = []
+
+[script]
+path = "slides/SCRIPT.md"
+duration_minutes = 12
+wpm = 130
+checkpoints = [
+  # { point = "①", page = "end of 02 Background", clock = "≤ 3:00", action = "keep concise" },
+]
+qa_rule = "Keep backup slides ready for likely methodology and evaluation questions."
+
+[script.introduced]
+# term = slide_number (1-indexed)
+"emulation" = 2
+"pipeline" = 3
+
+[script.assumed]
+words = [
+  "kernel", "process", "system", "host", "network", "algorithm", "latency", "throughput",
+]
+
+[script.deixis]
+phrases = [
+  "the bars", "the bar ", "the red line", "the blue line", "the green line",
+  "this figure", "the figure shows", "this table", "this slide shows",
+  "on the left", "on the right", "panel (", "panel a", "panel b",
+  "the bottom line", "the top line", "log scale", "x-axis", "y-axis",
+  "as you can see", "you can see here", "the chart", "the graph",
+  "is highlighted", "shown here", "in the figure",
+]
+
+[script.spoken]
+# identifier = "spoken pronunciation"
+"T_stall" = "T stall"
+"T_exec" = "T exec"
+
+[figures]
+# Map output SVG name (written to slides/assets/paper/<name>.svg) -> source PDF path (relative to repo root)
+# Example:
+# architecture = "paper-figures/architecture.pdf"

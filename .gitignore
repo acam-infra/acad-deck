@@ -1,0 +1,10 @@
+render/
+qa/
+__pycache__/
+*.pdfpc
+core/notes.typ
+core/script.typ
+slides/notes.typ
+slides/script.typ
+slides/assets/paper/*.svg
+.DS_Store
